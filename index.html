@@ -7,6 +7,32 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Finanční deník" />
   <meta name="theme-color" content="#0f0f13" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Finanční deník" />
+  <script>
+    // Inject PWA manifest as blob URL so Android installs it as app
+    const manifest = {
+      name: "Finanční deník",
+      short_name: "Fin. deník",
+      start_url: "./",
+      display: "standalone",
+      background_color: "#0f0f13",
+      theme_color: "#0f0f13",
+      orientation: "portrait-primary",
+      icons: [{
+        src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIHJ4PSIyMzAiIGZpbGw9IiMwZjBmMTMiLz48cmVjdCB4PSIxMjAiIHk9IjMxMCIgd2lkdGg9Ijc4NCIgaGVpZ2h0PSI1MDAiIHJ4PSI3MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZjBlZGU4IiBzdHJva2Utd2lkdGg9IjUyIi8+PHJlY3QgeD0iMTIwIiB5PSI0MjAiIHdpZHRoPSI3ODQiIGhlaWdodD0iOTAiIGZpbGw9IiNmMGVkZTgiLz48cmVjdCB4PSI1ODAiIHk9IjU3MCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSIxMzAiIHJ4PSI2NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZjBlZGU4IiBzdHJva2Utd2lkdGg9IjQ0Ii8+PGNpcmNsZSBjeD0iNjkwIiBjeT0iNjM1IiByPSIyOCIgZmlsbD0iI2YwZWRlOCIvPjxyZWN0IHg9IjM3MCIgeT0iMTgwIiB3aWR0aD0iMjg0IiBoZWlnaHQ9IjE2MCIgcng9IjUwIiBmaWxsPSIjMGYwZjEzIiBzdHJva2U9IiNmMGVkZTgiIHN0cm9rZS13aWR0aD0iNTIiLz48Y2lyY2xlIGN4PSIyNDAiIGN5PSI2MzAiIHI9IjQyIiBmaWxsPSIjZTc0YzNjIi8+PGNpcmNsZSBjeD0iMzYwIiBjeT0iNjMwIiByPSI0MiIgZmlsbD0iI2U2N2UyMiIvPjxjaXJjbGUgY3g9IjQ4MCIgY3k9IjYzMCIgcj0iNDIiIGZpbGw9IiMyZWNjNzEiLz48L3N2Zz4=",
+        sizes: "512x512",
+        type: "image/svg+xml",
+        purpose: "any maskable"
+      }]
+    };
+    const blob = new Blob([JSON.stringify(manifest)], {type:'application/manifest+json'});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('link');
+    link.rel = 'manifest';
+    link.href = url;
+    document.head.appendChild(link);
+  </script>
   <title>Finanční deník</title>
   <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIHJ4PSIyMzAiIGZpbGw9IiMwZjBmMTMiLz48cmVjdCB4PSIxMjAiIHk9IjMxMCIgd2lkdGg9Ijc4NCIgaGVpZ2h0PSI1MDAiIHJ4PSI3MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZjBlZGU4IiBzdHJva2Utd2lkdGg9IjUyIi8+PHJlY3QgeD0iMTIwIiB5PSI0MjAiIHdpZHRoPSI3ODQiIGhlaWdodD0iOTAiIGZpbGw9IiNmMGVkZTgiLz48cmVjdCB4PSI1ODAiIHk9IjU3MCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSIxMzAiIHJ4PSI2NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZjBlZGU4IiBzdHJva2Utd2lkdGg9IjQ0Ii8+PGNpcmNsZSBjeD0iNjkwIiBjeT0iNjM1IiByPSIyOCIgZmlsbD0iI2YwZWRlOCIvPjxyZWN0IHg9IjM3MCIgeT0iMTgwIiB3aWR0aD0iMjg0IiBoZWlnaHQ9IjE2MCIgcng9IjUwIiBmaWxsPSIjMGYwZjEzIiBzdHJva2U9IiNmMGVkZTgiIHN0cm9rZS13aWR0aD0iNTIiLz48Y2lyY2xlIGN4PSIyNDAiIGN5PSI2MzAiIHI9IjQyIiBmaWxsPSIjZTc0YzNjIi8+PGNpcmNsZSBjeD0iMzYwIiBjeT0iNjMwIiByPSI0MiIgZmlsbD0iI2U2N2UyMiIvPjxjaXJjbGUgY3g9IjQ4MCIgY3k9IjYzMCIgcj0iNDIiIGZpbGw9IiMyZWNjNzEiLz48L3N2Zz4=" />
   <style>
@@ -449,12 +475,15 @@ function rPlatby(){
   document.getElementById("content").innerHTML=h;
 }
 
-function rPlan(){
+function rPlan(restoreScroll){
+  const c=document.getElementById("content");
+  const scrollTop=restoreScroll||c.scrollTop;
   const m=cmk();let h=`<div class="section-label">Finanční plán – nastav limity</div>`;
   cats.forEach(cat=>{const b=gbud(cat.id),t=gct(cat.id,m),p=b.enabled&&b.limit>0?Math.min((t/b.limit)*100,100):0,r=b.limit-t,ov=r<0,fc=p>=100?"#e74c3c":p>=80?"#e67e22":cat.color;
-    h+=`<div style="background:#1a1a22;border-radius:14px;padding:14px 16px;margin-bottom:10px;border-left:3px solid ${cat.color}"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><span style="font-size:22px">${cat.emoji}</span><span style="font-weight:bold;font-size:15px;flex:1">${esc(cat.name)}</span><label class="toggle"><input type="checkbox" ${b.enabled?"checked":""} onchange="togBud('${cat.id}',this.checked)"><span class="toggle-slider"></span></label></div>${b.enabled?`<div style="margin-bottom:8px"><div class="form-label">Měsíční limit</div><div style="position:relative"><input type="number" inputmode="decimal" value="${b.limit||""}" placeholder="Zadej limit" style="width:100%;background:#0f0f13;border:1px solid ${cat.color}55;border-radius:8px;padding:10px 40px 10px 12px;color:#f0ede8;font-size:16px;outline:none;font-family:inherit" onblur="setBud('${cat.id}',this.value)" /><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#888;font-size:12px">Kč</span></div></div>${b.limit>0?`<div><div style="display:flex;justify-content:space-between;font-size:11px;color:#888;margin-bottom:4px"><span>${czk(t)} utraceno</span><span>${czk(b.limit)} limit</span></div><div class="progress-bg"><div class="progress-fill" style="width:${p}%;background:${fc}"></div></div><div style="font-size:12px;margin-top:6px;color:${ov?"#e74c3c":"#2ecc71"};font-weight:bold">${ov?"⚠️ Překročeno o "+czk(Math.abs(r)):"✓ Zbývá "+czk(r)}</div></div>`:""}`:`<div style="font-size:12px;color:#555">Limit vypnutý</div>`}</div>`;
+    h+=`<div style="background:#1a1a22;border-radius:14px;padding:14px 16px;margin-bottom:10px;border-left:3px solid ${cat.color}"><div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><span style="font-size:22px">${cat.emoji}</span><span style="font-weight:bold;font-size:15px;flex:1">${esc(cat.name)}</span><label class="toggle"><input type="checkbox" ${b.enabled?"checked":""} onchange="togBud('${cat.id}',this.checked)"><span class="toggle-slider"></span></label></div>${b.enabled?`<div style="margin-bottom:8px"><div class="form-label">Měsíční limit</div><div style="position:relative"><input type="number" inputmode="decimal" value="${b.limit||""}" id="bud-inp-${cat.id}" placeholder="Zadej limit" style="width:100%;background:#0f0f13;border:1px solid ${cat.color}55;border-radius:8px;padding:10px 40px 10px 12px;color:#f0ede8;font-size:16px;outline:none;font-family:inherit" onblur="setBud('${cat.id}',this.value)" /><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#888;font-size:12px">Kč</span></div></div>${b.limit>0?`<div><div style="display:flex;justify-content:space-between;font-size:11px;color:#888;margin-bottom:4px"><span>${czk(t)} utraceno</span><span>${czk(b.limit)} limit</span></div><div class="progress-bg"><div class="progress-fill" style="width:${p}%;background:${fc}"></div></div><div style="font-size:12px;margin-top:6px;color:${ov?"#e74c3c":"#2ecc71"};font-weight:bold">${ov?"⚠️ Překročeno o "+czk(Math.abs(r)):"✓ Zbývá "+czk(r)}</div></div>`:""}`:`<div style="font-size:12px;color:#555">Limit vypnutý</div>`}</div>`;
   });
-  document.getElementById("content").innerHTML=h;
+  c.innerHTML=h;
+  if(scrollTop)c.scrollTop=scrollTop;
 }
 
 function rSummary(){
@@ -574,8 +603,31 @@ window.saveExp=function(){
 };
 window.delExp=function(m,id){if(!exps[m])return;exps[m]=exps[m].filter(e=>e.id!==id);save();render();};
 window.togPay=function(m,pid){if(!payStatus[m])payStatus[m]={};payStatus[m][pid]=!payStatus[m][pid];save();render();};
-window.togBud=function(id,en){if(!budgets[id])budgets[id]={enabled:false,limit:0};budgets[id].enabled=en;save();render();};
-window.setBud=function(id,val){const n=parseFloat(val);if(!budgets[id])budgets[id]={enabled:true,limit:0};budgets[id].limit=isNaN(n)?0:n;save();render();};
+window.togBud=function(id,en){
+  if(!budgets[id])budgets[id]={enabled:false,limit:0};
+  budgets[id].enabled=en;
+  save();
+  // togBud only fires on checkbox change (no keyboard involved) - safe to re-render
+  setTimeout(()=>{if(tab==='plan'&&view==='main')rPlan();},50);
+};
+window.setBud=function(id,val){
+  // Called onblur - keyboard already dismissed, safe to update UI
+  const n=parseFloat(val);
+  if(!budgets[id])budgets[id]={enabled:true,limit:0};
+  budgets[id].limit=isNaN(n)?0:n;
+  save();
+  // Just update the progress elements for this category without full re-render
+  const mk=cmk(),cat=cats.find(c=>c.id===id);
+  if(!cat)return;
+  const t=gct(id,mk),b=budgets[id],p=b.limit>0?Math.min((t/b.limit)*100,100):0;
+  const r=b.limit-t,ov=r<0;
+  const fc=p>=100?'#e74c3c':p>=80?'#e67e22':cat.color;
+  // Find and update the progress bar for this category
+  const fills=document.querySelectorAll('.progress-fill');
+  const bars=document.querySelectorAll('.progress-bg');
+  // Re-render plan cleanly since keyboard is already gone on blur
+  rPlan();
+};
 window.toggleIncome=function(en){incomeEnabled=en;save();render();};
 window.openAddIncome=function(){view="addIncome";render();};
 window.saveIncome=function(){
