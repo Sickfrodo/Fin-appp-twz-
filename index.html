@@ -290,7 +290,10 @@ function subscribe(){
   if(unsub)unsub();
   unsub=onSnapshot(doc(db,"users",user.uid),(snap)=>{
     if(snap.exists())applyData(snap.data());
-    render();updateProfileUI();
+    // Don't re-render if user is actively typing - would kill keyboard
+    const active=document.activeElement;
+    const isTyping=active&&(active.tagName==='INPUT'||active.tagName==='TEXTAREA');
+    if(!isTyping){render();updateProfileUI();}
   });
 }
 
